@@ -121,7 +121,7 @@
             <GroupBox Grid.Column="1" Header="emoji:EmojiedRichTextBox" Margin="4">
                 <DockPanel LastChildFill="True">
                     <StackPanel DockPanel.Dock="Left">
-                        <emoji:EmojiPicker x:Name="EditorPicker" FontSize="20" Margin="4"/>
+                        <emoji:EmojiPicker x:Name="EditorPicker" FontSize="20" Margin="4" EmojiPicked="EditorPicker_EmojiPicked"/>
                     </StackPanel>
                     <emoji:EmojiedRichTextBox FontSize="20" Margin="5" x:Name="EmojiRichTextBox" ColonSyntax="True"
                                        VerticalScrollBarVisibility="Auto" Foreground="Indigo"

@@ -106,9 +106,28 @@ namespace iNKORE.UI.WPF.Emojis
             set { SetValue(EmojiItemSizeProperty, value); }
         }
 
+        public static readonly DependencyProperty EmojiToggleButtonStyleProperty = TabbedEmojiList.EmojiToggleButtonStyleProperty.AddOwner(typeof(EmojiPicker));
+        public Style EmojiToggleButtonStyle
+        {
+            get { return (Style)GetValue(EmojiToggleButtonStyleProperty); }
+            set { SetValue(EmojiToggleButtonStyleProperty, value); }
+        }
+
+        public static readonly RoutedEvent EmojiPickedEvent = TabbedEmojiList.EmojiPickedEvent.AddOwner(typeof(EmojiPicker));
+        public event EmojiPickedEventHandler EmojiPicked
+        {
+            add { this.AddHandler(EmojiPickedEvent, value); }
+            remove { this.RemoveHandler(EmojiPickedEvent, value); }
+        }
+
+
+
         private void TabbedEmojiList_EmojiList_EmojiPicked(object sender, EmojiPickedEventArgs e)
         {
-
+            Selection = e.Emoji;
+            Button_INTERNAL.IsChecked = false;
+            e.Handled = true;
+            this.RaiseEvent(new EmojiPickedEventArgs(Selection));
         }
     }
 }

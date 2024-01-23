@@ -43,6 +43,11 @@ namespace Demo
             //EditorPicker.Picked += (o, e) =>
             //    EmojiRichTextBox.CaretPosition.InsertTextInRun(e.Emoji);
         }
+
+        private void EditorPicker_EmojiPicked(object sender, iNKORE.UI.WPF.Emojis.EmojiPickedEventArgs e)
+        {
+            EmojiRichTextBox.CaretPosition.InsertTextInRun(e.Emoji);
+        }
     }
 }
 
