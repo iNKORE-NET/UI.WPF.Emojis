@@ -11,15 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tiny", "Samples\Tiny\Tiny.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FontViewer", "Samples\FontViewer\FontViewer.csproj", "{7F68102E-00A3-4E83-8DA8-0F9CF736ED2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typography.OpenFont", "Typography\Build\N20\Typography.OpenFont\Typography.OpenFont.csproj", "{F7D71E61-9342-4DD7-9AFD-69045F2EC98B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typography.GlyphLayout", "Typography\Build\N20\Typography.GlyphLayout\Typography.GlyphLayout.csproj", "{C6807D05-09BE-4313-9F8B-BD2D51C55819}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{00F1DBB1-6BF8-43DE-AA15-57A043E34F45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{FA82A6BE-C599-4137-A383-5FCB586243C1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{7A06168D-9101-4416-BDDE-65A57AE4C34F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoremIpsum", "Samples\LoremIpsum\LoremIpsum.csproj", "{5ED625A2-A769-4FB0-8E35-4B836CDA843D}"
 EndProject
@@ -45,14 +39,6 @@ Global
 		{7F68102E-00A3-4E83-8DA8-0F9CF736ED2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F68102E-00A3-4E83-8DA8-0F9CF736ED2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F68102E-00A3-4E83-8DA8-0F9CF736ED2C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7D71E61-9342-4DD7-9AFD-69045F2EC98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7D71E61-9342-4DD7-9AFD-69045F2EC98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7D71E61-9342-4DD7-9AFD-69045F2EC98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7D71E61-9342-4DD7-9AFD-69045F2EC98B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6807D05-09BE-4313-9F8B-BD2D51C55819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6807D05-09BE-4313-9F8B-BD2D51C55819}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6807D05-09BE-4313-9F8B-BD2D51C55819}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6807D05-09BE-4313-9F8B-BD2D51C55819}.Release|Any CPU.Build.0 = Release|Any CPU
 		{00F1DBB1-6BF8-43DE-AA15-57A043E34F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{00F1DBB1-6BF8-43DE-AA15-57A043E34F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00F1DBB1-6BF8-43DE-AA15-57A043E34F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,15 +55,9 @@ Global
 		{4C358318-FF04-4FF7-9F5C-18165927A7E2} = {FA82A6BE-C599-4137-A383-5FCB586243C1}
 		{A1AD34BF-A47B-42D2-B9DB-DF382B1D8F0C} = {FA82A6BE-C599-4137-A383-5FCB586243C1}
 		{7F68102E-00A3-4E83-8DA8-0F9CF736ED2C} = {FA82A6BE-C599-4137-A383-5FCB586243C1}
-		{F7D71E61-9342-4DD7-9AFD-69045F2EC98B} = {7A06168D-9101-4416-BDDE-65A57AE4C34F}
-		{C6807D05-09BE-4313-9F8B-BD2D51C55819} = {7A06168D-9101-4416-BDDE-65A57AE4C34F}
 		{5ED625A2-A769-4FB0-8E35-4B836CDA843D} = {FA82A6BE-C599-4137-A383-5FCB586243C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89E7F359-04D7-406C-956E-381B22D44170}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Typography\Typography.GlyphLayout\Typography.GlyphLayout.projitems*{c6807d05-09be-4313-9f8b-bd2d51c55819}*SharedItemsImports = 4
-		Typography\Typography.OpenFont\Typography.OpenFont.projitems*{f7d71e61-9342-4dd7-9afd-69045f2ec98b}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
