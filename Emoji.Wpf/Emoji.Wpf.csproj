@@ -10,18 +10,19 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageTags>Emoji Unicode WPF XAML</PackageTags>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net452;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net462;net6.0-windows</TargetFrameworks>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <UseWPF>true</UseWPF>
     <DefaultItemExcludes>
-        $(DefaultItemExcludes);gitversion.json;**\*.swp;**\*~;
-        UnicodeCLDR\**;UnicodeEmoji\**
-    </DefaultItemExcludes>
+		$(DefaultItemExcludes);gitversion.json;**\*.swp;**\*~;
+		UnicodeCLDR\**;Resources\Text\UnicodeEmoji\**
+	</DefaultItemExcludes>
 
     <!--Remove this section when https://github.com/nuget/home/issues/3891 is resolved -->
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <UsingTask TaskName="GZipTask" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
@@ -81,37 +82,34 @@
   </Target>-->
 
   <ItemGroup>
-    <LargeResources Include="UnicodeEmoji\emoji-test.txt" />
+    <LargeResources Include="Resources\Text\UnicodeEmoji\emoji-test.txt" />
   </ItemGroup>
+
+	<ItemGroup Condition="!$(DefineConstants.Contains('NET47_OR_NEWER'))">
+		<PackageReference Include="System.ValueTuple" Version="4.5.0" />
+	</ItemGroup>
 
   <ItemGroup>
     <None Include="..\Resources\icon.png" Pack="true" PackagePath="" />
-    <None Include="@(LargeResources)" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="WinFonts\webdings.txt" LogicalName="webdings.txt" />
-    <EmbeddedResource Include="WinFonts\wingdings.txt" LogicalName="wingdings.txt" />
+    <EmbeddedResource Include="Resources\Text\WinFonts\webdings.txt" LogicalName="webdings.txt" />
+    <EmbeddedResource Include="Resources\Text\WinFonts\wingdings.txt" LogicalName="wingdings.txt" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <EmbeddedShader Include="**/*.hlsl" ShaderProfile="ps_3_0" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <None Remove="Internal\TintEffect.ps" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="JeremyAnsel.HLSL.Targets" Version="2.0.20" GeneratePathProperty="True" />
-    <PackageReference Include="Stfu" Version="0.1.7" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Typography\Build\N20\Typography.GlyphLayout\Typography.GlyphLayout.csproj" PrivateAssets="all" />
-    <ProjectReference Include="..\Typography\Build\N20\Typography.OpenFont\Typography.OpenFont.csproj" PrivateAssets="all" />
-  </ItemGroup>
   <ItemGroup>
     <Resource Include="Internal\TintEffect.ps" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
   <!--Remove this section when https://github.com/nuget/home/issues/3891 is resolved -->

@@ -72,7 +72,7 @@
             <GroupBox Grid.Column="1" Header="wpf:ImageSource" Margin="4">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="{StaticResource DrawingImageSource}"/>
-                    <Image emoji:Image.Source="{StaticResource StringImageSource}"/>
+                    <!--<Image emoji:Image.Source="{StaticResource StringImageSource}"/>-->
                 </StackPanel>
             </GroupBox>
         </Grid>
