@@ -14,8 +14,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
-
-using Controls = System.Windows.Controls;
+using System.Windows.Controls;
 
 namespace iNKORE.UI.WPF.Emojis
 {
@@ -23,14 +22,14 @@ namespace iNKORE.UI.WPF.Emojis
     {
         // Need an empty constructor for serialisation (undo/redo)
         public EmojiInline()
-            : base(new Controls.Image())
+            : base(new Image())
         {
             // FIXME: not sure TextBottom is the correct value; but Baseline does not work.
             BaselineAlignment = BaselineAlignment.TextBottom;
         }
 
         public EmojiInline(TextPointer pos)
-            : base(new Controls.Image(), pos)
+            : base(new Image(), pos)
         {
             BaselineAlignment = BaselineAlignment.TextBottom;
         }
@@ -38,9 +37,9 @@ namespace iNKORE.UI.WPF.Emojis
         /// <summary>
         /// Redeclare the Child property to prevent it from being serialized.
         /// </summary>
-        public new Controls.Image Child
+        public new Image Child
         {
-            get => base.Child as Controls.Image;
+            get => base.Child as Image;
             private set => base.Child = value;
         }
 
@@ -91,7 +90,7 @@ namespace iNKORE.UI.WPF.Emojis
 
             if (!m_cache.TryGetValue(UnicodeSequence, out var item))
             {
-                var dg = Image.RenderEmoji(UnicodeSequence, out item.width, out item.height);
+                var dg = EmojiImage.RenderEmoji(UnicodeSequence, out item.width, out item.height);
                 item.di = new DrawingImage(dg);
                 item.di.Freeze();
 

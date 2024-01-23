@@ -34,11 +34,11 @@
             </Style>
         </ListBox.ItemContainerStyle>
 
-        <!-- Each list item is rendered in an emoji:TextBlock -->
+        <!-- Each list item is rendered in an emoji:EmojiedTextBlock -->
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel>
-                    <emoji:TextBlock Width="580" Text="{Binding Text}" TextWrapping="Wrap" FontSize="16"/>
+                    <emoji:EmojiedTextBlock Width="580" Text="{Binding Text}" TextWrapping="Wrap" FontSize="16"/>
                 </StackPanel>
             </DataTemplate>
         </ListBox.ItemTemplate>

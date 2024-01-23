@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace iNKORE.UI.WPF.Emojis
@@ -28,9 +29,9 @@ namespace iNKORE.UI.WPF.Emojis
     /// FIXME: the "Text" property changes ignore UpdateSourceTrigger=PropertyChanged and
     /// act as if the default UpdateSourceTrigger=LostFocus was still in use.
     /// </summary>
-    public partial class TextBox : System.Windows.Controls.TextBox
+    public partial class EmojiedTextBox : TextBox
     {
-        public TextBox()
+        public EmojiedTextBox()
         {
             InitializeComponent();
         }
@@ -46,16 +47,16 @@ namespace iNKORE.UI.WPF.Emojis
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            m_rtb = Template.FindName("RichTextBox_INTERNAL", this) as RichTextBox;
+            m_rtb = Template.FindName("RichTextBox_INTERNAL", this) as EmojiedRichTextBox;
 
             // Build a list of TextBox properties that are not inherited from Control. These
             // are the properties we want to bind to our child RichTextBox.
             var exclude = GetReadWritePropertyNames(typeof(System.Windows.Controls.Control));
-            var propset = GetReadWritePropertyNames(typeof(TextBox));
+            var propset = GetReadWritePropertyNames(typeof(EmojiedTextBox));
             propset.ExceptWith(exclude);
 
 #if DEBUG
-            var tmp1 = GetReadWritePropertyNames(typeof(RichTextBox));
+            var tmp1 = GetReadWritePropertyNames(typeof(EmojiedRichTextBox));
             tmp1.ExceptWith(exclude);
             var tmp2 = propset.ToHashSet();
             tmp2.ExceptWith(tmp1);
@@ -73,7 +74,7 @@ namespace iNKORE.UI.WPF.Emojis
 
             // Iterate over all RichTextBox properties; for each found match, create a
             // two-way binding with one of our properties.
-            foreach (var dpd in GetReadWriteProperties(typeof(RichTextBox))
+            foreach (var dpd in GetReadWriteProperties(typeof(EmojiedRichTextBox))
                                    .Where(x => propset.Contains(x.Name))
                                    .Select(x => DependencyPropertyDescriptor.FromProperty(x))
                                    .Where(x => x != null))
@@ -94,6 +95,6 @@ namespace iNKORE.UI.WPF.Emojis
         private static HashSet<string> GetReadWritePropertyNames(Type t)
             => GetReadWriteProperties(t).Select(x => x.Name).ToHashSet();
 
-        private RichTextBox m_rtb;
+        private EmojiedRichTextBox m_rtb;
     }
 }

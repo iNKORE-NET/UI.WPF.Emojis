@@ -63,7 +63,7 @@ namespace iNKORE.UI.WPF.Emojis
                                                      SubstituteOptions options)
         {
             // If our parent is a RichTextBox, try to retain the caret position
-            RichTextBox rtb = parent as RichTextBox;
+            EmojiedRichTextBox rtb = parent as EmojiedRichTextBox;
 
             var colon_syntax = (options & SubstituteOptions.ColonSyntax) != 0;
             var color_blend = (options & SubstituteOptions.ColorBlend) != 0;

@@ -18,44 +18,43 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
-
-using Controls = System.Windows.Controls;
+using System.Windows.Controls;
 
 namespace iNKORE.UI.WPF.Emojis
 {
     /// <summary>
     /// A simple WPF text control that is emoji-aware.
     /// </summary>
-    public class TextBlock : Controls.TextBlock, IEmojiControl
+    public class EmojiedTextBlock : TextBlock, IEmojiControl
     {
-        static TextBlock()
+        static EmojiedTextBlock()
         {
-            TextProperty.OverrideMetadata(typeof(TextBlock), new FrameworkPropertyMetadata(
-                (string)Controls.TextBlock.TextProperty.GetMetadata(typeof(Controls.TextBlock)).DefaultValue,
-                (o, e) => (o as TextBlock)?.OnTextChanged(e.NewValue as string)));
+            TextProperty.OverrideMetadata(typeof(EmojiedTextBlock), new FrameworkPropertyMetadata(
+                (string)TextBlock.TextProperty.GetMetadata(typeof(TextBlock)).DefaultValue,
+                (o, e) => (o as EmojiedTextBlock)?.OnTextChanged(e.NewValue as string)));
 
-            ForegroundProperty.OverrideMetadata(typeof(TextBlock), new FrameworkPropertyMetadata(
-                (Brush)ForegroundProperty.GetMetadata(typeof(Controls.TextBlock)).DefaultValue,
-                (o, e) => (o as TextBlock)?.OnForegroundChanged(e.NewValue as Brush)));
+            ForegroundProperty.OverrideMetadata(typeof(EmojiedTextBlock), new FrameworkPropertyMetadata(
+                (Brush)ForegroundProperty.GetMetadata(typeof(TextBlock)).DefaultValue,
+                (o, e) => (o as EmojiedTextBlock)?.OnForegroundChanged(e.NewValue as Brush)));
 
-            FontSizeProperty.OverrideMetadata(typeof(TextBlock), new FrameworkPropertyMetadata(
-                (double)FontSizeProperty.GetMetadata(typeof(Controls.TextBlock)).DefaultValue,
-                (o, e) => (o as TextBlock)?.OnFontSizeChanged((double)e.NewValue)));
+            FontSizeProperty.OverrideMetadata(typeof(EmojiedTextBlock), new FrameworkPropertyMetadata(
+                (double)FontSizeProperty.GetMetadata(typeof(TextBlock)).DefaultValue,
+                (o, e) => (o as EmojiedTextBlock)?.OnFontSizeChanged((double)e.NewValue)));
 
-            TextWrappingProperty.OverrideMetadata(typeof(TextBlock), new FrameworkPropertyMetadata(
-                (TextWrapping)TextWrappingProperty.GetMetadata(typeof(Controls.TextBlock)).DefaultValue,
-                (o, e) => (o as TextBlock)?.OnTextWrappingChanged((TextWrapping)e.NewValue)));
+            TextWrappingProperty.OverrideMetadata(typeof(EmojiedTextBlock), new FrameworkPropertyMetadata(
+                (TextWrapping)TextWrappingProperty.GetMetadata(typeof(TextBlock)).DefaultValue,
+                (o, e) => (o as EmojiedTextBlock)?.OnTextWrappingChanged((TextWrapping)e.NewValue)));
         }
 
         /// <summary>
         /// Implement the same constructor as Controls.TextBlock
         /// </summary>
-        public TextBlock() => Init();
+        public EmojiedTextBlock() => Init();
 
         /// <summary>
         /// Implement the same constructor as Controls.TextBlock
         /// </summary>
-        public TextBlock(Inline inline) : base(inline) => Init();
+        public EmojiedTextBlock(Inline inline) : base(inline) => Init();
 
         private void Init()
         {
@@ -83,7 +82,7 @@ namespace iNKORE.UI.WPF.Emojis
         /// Override System.Windows.Controls.TextBlock.TextProperty
         /// </summary>
         public static new readonly DependencyProperty TextProperty =
-            DependencyProperty.Register(nameof(Text), typeof(string), typeof(TextBlock));
+            DependencyProperty.Register(nameof(Text), typeof(string), typeof(EmojiedTextBlock));
 
         public bool ColorBlend
         {
@@ -92,8 +91,8 @@ namespace iNKORE.UI.WPF.Emojis
         }
 
         public static readonly DependencyProperty ColorBlendProperty =
-             DependencyProperty.Register(nameof(ColorBlend), typeof(bool), typeof(TextBlock),
-                 new PropertyMetadata(false, (o, e) => (o as TextBlock)?.OnColorBlendChanged((bool)e.NewValue)));
+             DependencyProperty.Register(nameof(ColorBlend), typeof(bool), typeof(EmojiedTextBlock),
+                 new PropertyMetadata(false, (o, e) => (o as EmojiedTextBlock)?.OnColorBlendChanged((bool)e.NewValue)));
 
         public IEnumerable<EmojiInline> EmojiInlines
             => Inlines.OfType<EmojiInline>();
@@ -143,7 +142,7 @@ namespace iNKORE.UI.WPF.Emojis
             => EmojiInlines.ForAll(e => e.FontSize = size);
 
         private static readonly DependencyPropertyDescriptor m_text_dpd =
-            DependencyPropertyDescriptor.FromProperty(TextProperty, typeof(TextBlock));
+            DependencyPropertyDescriptor.FromProperty(TextProperty, typeof(EmojiedTextBlock));
     }
 }
 

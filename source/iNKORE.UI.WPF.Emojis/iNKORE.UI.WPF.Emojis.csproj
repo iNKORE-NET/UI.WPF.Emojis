@@ -95,11 +95,12 @@
 	<ItemGroup>
 		<None Remove="Internal\TintEffect.ps" />
 	</ItemGroup>
+
 	<ItemGroup>
-		<Resource Include="Internal\TintEffect.ps" />
+	  <PackageReference Include="iNKORE.UI.WPF" Version="1.0.0.2" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Helpers\" />
+		<Resource Include="Internal\TintEffect.ps" />
 	</ItemGroup>
 
 	<!--Remove this section when https://github.com/nuget/home/issues/3891 is resolved -->

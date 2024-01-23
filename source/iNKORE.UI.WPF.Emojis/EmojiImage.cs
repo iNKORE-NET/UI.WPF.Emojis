@@ -15,15 +15,14 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
-
-using Controls = System.Windows.Controls;
+using System.Windows.Controls;
 
 namespace iNKORE.UI.WPF.Emojis
 {
-    public static class Image
+    public static class EmojiImage
     {
         public static readonly DependencyProperty SourceProperty =
-            DependencyProperty.RegisterAttached("Source", typeof(string), typeof(Image),
+            DependencyProperty.RegisterAttached("Source", typeof(string), typeof(EmojiImage),
                 new PropertyMetadata(default(string), OnSourceChanged));
 
         public static void SetSource(DependencyObject o, string value)
@@ -34,7 +33,7 @@ namespace iNKORE.UI.WPF.Emojis
 
         private static void OnSourceChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            if (o is Controls.Image image)
+            if (o is Image image)
             {
                 var di = new DrawingImage();
                 SetSource(di, e.NewValue as string);

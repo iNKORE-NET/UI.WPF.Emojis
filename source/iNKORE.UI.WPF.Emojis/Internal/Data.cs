@@ -83,6 +83,20 @@ namespace iNKORE.UI.WPF.Emojis
         public class Emoji
         {
             public string Name { get; set; }
+            public string DisplayName
+            {
+                get
+                {
+                    string[] strArray = Name.Split(new string[] { " ", "_"}, StringSplitOptions.RemoveEmptyEntries);
+                    string result = string.Empty;//定义一个空字符串
+
+                    foreach (string s in strArray)//循环处理数组里面每一个字符串
+                    {
+                        result += s.Substring(0, 1).ToUpper() + s.Substring(1) + " ";
+                    }
+                    return result.Trim();
+                }
+            }
             public string Text { get; set; }
             public bool Renderable { get; set; }
             public bool HasVariations => VariationList.Count > 0;

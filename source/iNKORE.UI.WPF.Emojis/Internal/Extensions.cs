@@ -12,6 +12,8 @@
 
 using System;
 using System.Windows.Documents;
+using System.Windows.Media;
+using System.Windows.Navigation;
 
 namespace iNKORE.UI.WPF.Emojis
 {
@@ -36,6 +38,18 @@ namespace iNKORE.UI.WPF.Emojis
                 p = p.GetNextContextPosition(dir);
             }
             return p ?? fallback;
+        }
+
+        public static SolidColorBrush ToBrush(this Color c, bool freeze = true)
+        {
+            var brush = new SolidColorBrush(c);
+
+            if (freeze && brush.CanFreeze)
+            {
+                brush.Freeze();
+            }
+
+            return brush;
         }
     }
 }

@@ -20,43 +20,29 @@ using System.Windows.Input;
 
 namespace iNKORE.UI.WPF.Emojis
 {
-    public class EmojiPickedEventArgs : EventArgs
-    {
-        public EmojiPickedEventArgs() { }
-        public EmojiPickedEventArgs(string emoji) => Emoji = emoji;
-
-        public string Emoji;
-    }
-
-    public delegate void EmojiPickedEventHandler(object sender, EmojiPickedEventArgs e);
-
     /// <summary>
     /// Interaction logic for Picker.xaml
     /// </summary>
-    public partial class Picker : StackPanel
+    public partial class EmojiPicker : UserControl
     {
-        public Picker()
+        public EmojiPicker()
         {
             InitializeComponent();
         }
 
-        public IList<EmojiData.Group> EmojiGroups => EmojiData.AllGroups;
-
-        // Backwards compatibility for when the backend was a TextBlock.
-        public double FontSize
-        {
-            get => Image.Height * 0.75;
-            set => Image.Height = value / 0.75;
-        }
+        //// Backwards compatibility for when the backend was a TextBlock.
+        //public double FontSize
+        //{
+        //    get => Image.Height * 0.75;
+        //    set => Image.Height = value / 0.75;
+        //}
 
         public event PropertyChangedEventHandler SelectionChanged;
-
-        public event EmojiPickedEventHandler Picked;
 
         private static void OnSelectionPropertyChanged(DependencyObject source,
                                                        DependencyPropertyChangedEventArgs e)
         {
-            (source as Picker)?.OnSelectionChanged(e.NewValue as string);
+            (source as EmojiPicker)?.OnSelectionChanged(e.NewValue as string);
         }
 
         public string Selection
@@ -68,27 +54,13 @@ namespace iNKORE.UI.WPF.Emojis
         private void OnSelectionChanged(string s)
         {
             var is_disabled = string.IsNullOrEmpty(s);
-            Image.SetValue(Emojis.Image.SourceProperty, is_disabled ? "???" : s);
+            Image.SetValue(EmojiImage.SourceProperty, is_disabled ? "???" : s);
             Image.Opacity = is_disabled ? 0.3 : 1.0;
             SelectionChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Selection)));
         }
 
-        private void OnEmojiPicked(object sender, RoutedEventArgs e)
-        {
-            if (sender is Control control && control.DataContext is EmojiData.Emoji emoji)
-            {
-                if (emoji.VariationList.Count == 0 || sender is Button)
-                {
-                    Selection = emoji.Text;
-                    Button_INTERNAL.IsChecked = false;
-                    e.Handled = true;
-                    Picked?.Invoke(this, new EmojiPickedEventArgs(Selection));
-                }
-            }
-        }
-
         public static readonly DependencyProperty SelectionProperty = DependencyProperty.Register(
-            nameof(Selection), typeof(string), typeof(Picker),
+            nameof(Selection), typeof(string), typeof(EmojiPicker),
                 new FrameworkPropertyMetadata("☺", OnSelectionPropertyChanged));
 
         private void OnPopupKeyDown(object sender, KeyEventArgs e)
@@ -118,6 +90,25 @@ namespace iNKORE.UI.WPF.Emojis
             };
 
             popup.Closed += (o, ea) => Keyboard.Focus(old_focus);
+        }
+
+        public static readonly DependencyProperty PopupBorderStyleProperty = TabbedEmojiList.PopupBorderStyleProperty.AddOwner(typeof(EmojiPicker));
+        public Style PopupBorderStyle
+        {
+            get { return (Style)GetValue(PopupBorderStyleProperty); }
+            set { SetValue(PopupBorderStyleProperty, value); }
+        }
+
+        public static readonly DependencyProperty EmojiItemSizeProperty = TabbedEmojiList.EmojiItemSizeProperty.AddOwner(typeof(EmojiPicker));
+        public double EmojiItemSize
+        {
+            get { return (double)GetValue(EmojiItemSizeProperty); }
+            set { SetValue(EmojiItemSizeProperty, value); }
+        }
+
+        private void TabbedEmojiList_EmojiList_EmojiPicked(object sender, EmojiPickedEventArgs e)
+        {
+
         }
     }
 }

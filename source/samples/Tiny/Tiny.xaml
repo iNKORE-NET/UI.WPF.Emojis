@@ -15,7 +15,7 @@
         <clr:String x:Key="SampleText">Hi👨🏻‍👩🏿‍👧🏽‍👦🏽‍👦🏿lol</clr:String>
     </Window.Resources>
 
-    <emoji:TextBlock FontSize="120" Text="{StaticResource SampleText}"
+    <emoji:EmojiedTextBlock FontSize="120" Text="{StaticResource SampleText}"
                      FontFamily="Segoe UI Emoji, Segoe UI, Arial" TextWrapping="Wrap"
                      VerticalAlignment="Center" HorizontalAlignment="Center"/>
 </Window>

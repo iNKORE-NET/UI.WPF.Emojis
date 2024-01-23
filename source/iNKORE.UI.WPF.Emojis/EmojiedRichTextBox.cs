@@ -26,7 +26,7 @@ using System.Windows.Markup;
 #endif
 using System.Windows.Media;
 
-using Controls = System.Windows.Controls;
+using System.Windows.Controls;
 
 namespace iNKORE.UI.WPF.Emojis
 {
@@ -74,9 +74,9 @@ namespace iNKORE.UI.WPF.Emojis
         }
     }
 
-    public class RichTextBox : Controls.RichTextBox, IEmojiControl
+    public class EmojiedRichTextBox : RichTextBox, IEmojiControl
     {
-        public RichTextBox()
+        public EmojiedRichTextBox()
         {
             CommandManager.AddPreviewExecutedHandler(this, PreviewExecuted);
             SetValue(Block.LineHeightProperty, 1.0);
@@ -102,7 +102,7 @@ namespace iNKORE.UI.WPF.Emojis
             // caret. But in the case of a single click we do want to position the caret, so
             // we override the unwanted behaviour.
             var hit = VisualTreeHelper.HitTest(this, e.GetPosition(this));
-            if (hit?.VisualHit is Controls.Image im && im.Parent is EmojiInline emoji)
+            if (hit?.VisualHit is Image im && im.Parent is EmojiInline emoji)
             {
                 // Single click: cancel selection and position caret instead
                 // Double click: select a single emoji glyph
@@ -146,7 +146,7 @@ namespace iNKORE.UI.WPF.Emojis
         }
 
         private static void PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
-            => (sender as RichTextBox)?.OnPreviewExecuted(e);
+            => (sender as EmojiedRichTextBox)?.OnPreviewExecuted(e);
 
         /// <summary>
         /// Intercept some high level commands to ensure consistency.
@@ -170,7 +170,7 @@ namespace iNKORE.UI.WPF.Emojis
         /// Replace Emoji characters with EmojiInline objects inside the document.
         /// </summary>
         /// <param name="e"></param>
-        protected override void OnTextChanged(Controls.TextChangedEventArgs e)
+        protected override void OnTextChanged(TextChangedEventArgs e)
         {
             // Protect against recursive changes (triggered by EndChange)
             if (m_pending_change)
@@ -250,8 +250,8 @@ namespace iNKORE.UI.WPF.Emojis
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            nameof(Text), typeof(string), typeof(RichTextBox), new FrameworkPropertyMetadata("",
-                (o, e) => (o as RichTextBox)?.OnTextPropertyChanged(e.NewValue as string))
+            nameof(Text), typeof(string), typeof(EmojiedRichTextBox), new FrameworkPropertyMetadata("",
+                (o, e) => (o as EmojiedRichTextBox)?.OnTextPropertyChanged(e.NewValue as string))
             { DefaultUpdateSourceTrigger = UpdateSourceTrigger.LostFocus });
 
         public bool ColonSyntax
@@ -261,7 +261,7 @@ namespace iNKORE.UI.WPF.Emojis
         }
 
         public static readonly DependencyProperty ColonSyntaxProperty =
-             DependencyProperty.Register(nameof(ColonSyntax), typeof(bool), typeof(RichTextBox),
+             DependencyProperty.Register(nameof(ColonSyntax), typeof(bool), typeof(EmojiedRichTextBox),
                  new PropertyMetadata(false));
 
         public bool ColorBlend
@@ -271,8 +271,8 @@ namespace iNKORE.UI.WPF.Emojis
         }
 
         public static readonly DependencyProperty ColorBlendProperty =
-             DependencyProperty.Register(nameof(ColorBlend), typeof(bool), typeof(RichTextBox),
-                 new PropertyMetadata(false, (o, e) => (o as RichTextBox)?.OnColorBlendChanged((bool)e.NewValue)));
+             DependencyProperty.Register(nameof(ColorBlend), typeof(bool), typeof(EmojiedRichTextBox),
+                 new PropertyMetadata(false, (o, e) => (o as EmojiedRichTextBox)?.OnColorBlendChanged((bool)e.NewValue)));
 
         public IEnumerable<EmojiInline> EmojiInlines
         {
@@ -289,7 +289,7 @@ namespace iNKORE.UI.WPF.Emojis
         public string XamlText => (string)GetValue(XamlTextProperty);
 
         public static readonly DependencyProperty XamlTextProperty = DependencyProperty.Register(
-            nameof(XamlText), typeof(string), typeof(RichTextBox),
+            nameof(XamlText), typeof(string), typeof(EmojiedRichTextBox),
             new PropertyMetadata(""));
 #endif
     }

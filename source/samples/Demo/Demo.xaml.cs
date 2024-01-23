@@ -40,8 +40,8 @@ namespace Demo
                 brushes[p.Name] = (Brush)p.GetValue(null, null);
             ColorPicker.ItemsSource = brushes;
 
-            EditorPicker.Picked += (o, e) =>
-                EmojiRichTextBox.CaretPosition.InsertTextInRun(e.Emoji);
+            //EditorPicker.Picked += (o, e) =>
+            //    EmojiRichTextBox.CaretPosition.InsertTextInRun(e.Emoji);
         }
     }
 }
