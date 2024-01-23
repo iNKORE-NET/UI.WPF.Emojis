@@ -1,5 +1,5 @@
 ﻿//
-//  Emoji.Wpf — Emoji support for WPF
+//  iNKORE.UI.WPF.Emojis — Emoji support for WPF
 //
 //  Copyright © 2017–2020 Sam Hocevar <sam@hocevar.net>
 //
@@ -16,7 +16,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 
-using Emoji.Wpf;
+using iNKORE.UI.WPF.Emojis;
 
 namespace FontViewer
 {

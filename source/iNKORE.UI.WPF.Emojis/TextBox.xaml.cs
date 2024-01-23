@@ -1,5 +1,5 @@
 ﻿//
-//  Emoji.Wpf — Emoji support for WPF
+//  iNKORE.UI.WPF.Emojis — Emoji support for WPF
 //
 //  Copyright © 2017–2023 Sam Hocevar <sam@hocevar.net>
 //
@@ -18,11 +18,11 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Emoji.Wpf
+namespace iNKORE.UI.WPF.Emojis
 {
     /// <summary>
-    /// The Emoji.Wpf.TextBox class inherits from the WPF TextBox, but it actually uses an
-    /// Emoji.Wpf.RichTextBox internally, through the template system. This is because only
+    /// The iNKORE.UI.WPF.Emojis.TextBox class inherits from the WPF TextBox, but it actually uses an
+    /// iNKORE.UI.WPF.Emojis.RichTextBox internally, through the template system. This is because only
     /// a RichTextBox can render colour images.
     /// The trick is then to forward all property changes to the container.
     /// FIXME: the "Text" property changes ignore UpdateSourceTrigger=PropertyChanged and

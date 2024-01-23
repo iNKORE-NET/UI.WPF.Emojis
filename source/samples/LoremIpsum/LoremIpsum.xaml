@@ -6,9 +6,9 @@
         xmlns:clr="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:LoremIpsum"
         xmlns:stfu="clr-namespace:Stfu.Wpf;assembly=Stfu"
-        xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
+        xmlns:emoji="clr-namespace:iNKORE.UI.WPF.Emojis;assembly=iNKORE.UI.WPF.Emojis"
         mc:Ignorable="d"
-        Title="Emoji.Wpf LoremIpsum" Width="640" Height="480">
+        Title="iNKORE.UI.WPF.Emojis LoremIpsum" Width="640" Height="480">
 
     <ListBox Margin="4" Name="ListBox" AlternationCount="2"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled"

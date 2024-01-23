@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:clr="clr-namespace:System;assembly=mscorlib"
-        xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
+        xmlns:emoji="http://schemas.inkore.net/lib/ui/wpf/emojis"
         mc:Ignorable="d"
-        Title="Emoji.Wpf Demo" Width="640" Height="480">
+        Title="iNKORE.UI.WPF.Emojis Demo" Width="640" Height="480">
 
     <Window.Resources>
         <clr:String x:Key="SampleText">Hello! 😁🎀🇬🇧👨‍👦👨🏻‍👩🏿‍👧🏽‍👦🏽‍‍😶‍🌫️</clr:String>
@@ -170,7 +170,7 @@
             </Grid.ColumnDefinitions>
             <GroupBox Grid.Column="0" Header="wpf:FlowDocument" Margin="4">
                 <FlowDocumentScrollViewer>
-                    <FlowDocument emoji:Behaviors.EmojiRendering="true" PagePadding="4">
+                    <FlowDocument emoji:EmojiBehaviors.EmojiRendering="true" PagePadding="4">
                         <Paragraph>
                             <Run Text="{StaticResource SampleText}" />
                         </Paragraph>

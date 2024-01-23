@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:clr="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Tiny"
-        xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
+        xmlns:emoji="clr-namespace:iNKORE.UI.WPF.Emojis;assembly=iNKORE.UI.WPF.Emojis"
         mc:Ignorable="d"
         WindowStyle="None" AllowsTransparency="True" Opacity="0.7"
         MouseLeftButtonDown="OnMouseLeftButtonDown"
-        Title="Emoji.Wpf Tiny" Width="600" Height="200">
+        Title="iNKORE.UI.WPF.Emojis Tiny" Width="600" Height="200">
 
     <Window.Resources>
         <clr:String x:Key="SampleText">Hi👨🏻‍👩🏿‍👧🏽‍👦🏽‍👦🏿lol</clr:String>

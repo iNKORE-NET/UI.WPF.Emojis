@@ -1,11 +1,11 @@
-﻿<StackPanel x:Class="Emoji.Wpf.Picker"
+﻿<StackPanel x:Class="iNKORE.UI.WPF.Emojis.Picker"
             x:Name="StackPanel_INTERNAL"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:stfu="clr-namespace:Stfu.Wpf"
-            xmlns:emoji="clr-namespace:Emoji.Wpf"
+            xmlns:emoji="clr-namespace:iNKORE.UI.WPF.Emojis"
             Orientation="Horizontal"
             mc:Ignorable="d">
 

@@ -1,5 +1,5 @@
 ﻿//
-//  Emoji.Wpf — Emoji support for WPF
+//  iNKORE.UI.WPF.Emojis — Emoji support for WPF
 //
 //  Copyright © 2017–2021 Sam Hocevar <sam@hocevar.net>
 //
@@ -18,7 +18,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace Emoji.Wpf
+namespace iNKORE.UI.WPF.Emojis
 {
     public class EmojiPickedEventArgs : EventArgs
     {
@@ -68,7 +68,7 @@ namespace Emoji.Wpf
         private void OnSelectionChanged(string s)
         {
             var is_disabled = string.IsNullOrEmpty(s);
-            Image.SetValue(Wpf.Image.SourceProperty, is_disabled ? "???" : s);
+            Image.SetValue(Emojis.Image.SourceProperty, is_disabled ? "???" : s);
             Image.Opacity = is_disabled ? 0.3 : 1.0;
             SelectionChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Selection)));
         }

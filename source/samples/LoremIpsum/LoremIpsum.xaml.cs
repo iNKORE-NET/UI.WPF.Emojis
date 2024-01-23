@@ -1,5 +1,5 @@
 ﻿//
-//  Emoji.Wpf — Emoji support for WPF
+//  iNKORE.UI.WPF.Emojis — Emoji support for WPF
 //
 //  Copyright © 2017–2020 Sam Hocevar <sam@hocevar.net>
 //
@@ -10,7 +10,7 @@
 //  See http://www.wtfpl.net/ for more details.
 //
 
-using Emoji.Wpf;
+using iNKORE.UI.WPF.Emojis;
 using System;
 using System.Collections.Generic;
 using System.Linq;

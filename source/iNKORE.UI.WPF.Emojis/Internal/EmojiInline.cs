@@ -1,5 +1,5 @@
 ﻿//
-//  Emoji.Wpf — Emoji support for WPF
+//  iNKORE.UI.WPF.Emojis — Emoji support for WPF
 //
 //  Copyright © 2017–2021 Sam Hocevar <sam@hocevar.net>
 //
@@ -17,7 +17,7 @@ using System.Windows.Media;
 
 using Controls = System.Windows.Controls;
 
-namespace Emoji.Wpf
+namespace iNKORE.UI.WPF.Emojis
 {
     public class EmojiInline : InlineUIContainer
     {

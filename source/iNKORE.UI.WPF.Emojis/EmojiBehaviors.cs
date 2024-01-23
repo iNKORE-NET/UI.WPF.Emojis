@@ -1,5 +1,5 @@
 ﻿//
-//  Emoji.Wpf — Emoji support for WPF
+//  iNKORE.UI.WPF.Emojis — Emoji support for WPF
 //
 //  Copyright © 2017–2021 Sam Hocevar <sam@hocevar.net>
 //                   2021 Victor Irzak <victor.irzak@zomp.com>
@@ -14,16 +14,16 @@
 using System.Windows;
 using System.Windows.Documents;
 
-namespace Emoji.Wpf
+namespace iNKORE.UI.WPF.Emojis
 {
-    public static class Behaviors
+    public static class EmojiBehaviors
     {
         /// <summary>
         /// Using a DependencyProperty as the backing store for EmojiRendering.
         /// This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty EmojiRenderingProperty =
-            DependencyProperty.RegisterAttached("EmojiRendering", typeof(bool), typeof(Behaviors),
+            DependencyProperty.RegisterAttached("EmojiRendering", typeof(bool), typeof(EmojiBehaviors),
                                                 new UIPropertyMetadata(false, EmojiRenderingChanged));
 
         public static bool GetEmojiRendering(DependencyObject o)
@@ -43,5 +43,7 @@ namespace Emoji.Wpf
             if (sender is FlowDocument doc)
                 doc.SubstituteGlyphs();
         }
+
+        public const string XmlNamespace = "http://schemas.inkore.net/lib/ui/wpf/emojis";
     }
 }

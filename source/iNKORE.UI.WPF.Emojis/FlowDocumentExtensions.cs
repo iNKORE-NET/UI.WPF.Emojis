@@ -1,5 +1,5 @@
 ﻿//
-//  Emoji.Wpf — Emoji support for WPF
+//  iNKORE.UI.WPF.Emojis — Emoji support for WPF
 //
 //  Copyright © 2017–2023 Sam Hocevar <sam@hocevar.net>
 //                   2021 Victor Irzak <victor.irzak@zomp.com>
@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace Emoji.Wpf
+namespace iNKORE.UI.WPF.Emojis
 {
     [Flags]
     public enum SubstituteOptions

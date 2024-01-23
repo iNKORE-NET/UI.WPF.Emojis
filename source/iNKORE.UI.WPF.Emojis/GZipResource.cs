@@ -1,5 +1,5 @@
 ﻿//
-//  Emoji.Wpf — Emoji support for WPF
+//  iNKORE.UI.WPF.Emojis — Emoji support for WPF
 //
 //  Copyright © 2017–2021 Sam Hocevar <sam@hocevar.net>
 //
@@ -14,7 +14,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 
-namespace Emoji.Wpf
+namespace iNKORE.UI.WPF.Emojis
 {
     public class GZipResourceStream : StreamReader
     {
