@@ -1,0 +1,75 @@
+# Deploy to Production
+
+name: production
+
+# Triggered on push to master,
+# or PR against master.
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref to Deploy (master, hash, tag)
+        required: true
+      option:
+        description: use --override to allow any ref
+        required: false
+        default: ''
+jobs:
+  build:
+    name: Build for Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository (Custom Ref)
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.git-ref }}
+          lfs: false
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
+          -DskipTests=true
+      - name: Upload cldr-apps.war
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-apps
+          path: tools/cldr-apps/target/cldr-apps.war
+  deploy:
+    name: Deploy to Production
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download cldr-apps.war
+      uses: actions/download-artifact@v2
+      with:
+        name: cldr-apps
+    - name: Deploy to st
+      # Deploys only on push to master.
+      # Does not deploy for PRs.
+      shell: bash
+      env:
+        # the RSA key for connecting
+        RSA_KEY_SURVEYTOOL: ${{ secrets.RSA_KEY_SURVEYTOOL }}
+        # the SSH port
+        SURVEYTOOL_PORT: ${{ secrets.SURVEYTOOL_PORT }}
+        # the SSH host
+        SURVEYTOOL_HOST: ${{ secrets.SURVEYTOOL_HOST }}
+        # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
+        SURVEYTOOL_KNOWNHOSTS: ${{ secrets.SURVEYTOOL_KNOWNHOSTS }}
+        DEPLOY_SHA: ${{ github.event.inputs.git-ref }}
+        OVERRIDE: ${{ github.event.inputs.override }}
+      run: |
+        echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
+        echo "${SURVEYTOOL_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SURVEYTOOL_PORT} surveytool@${SURVEYTOOL_HOST} bash /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${DEPLOY_SHA} ${OVERRIDE}
