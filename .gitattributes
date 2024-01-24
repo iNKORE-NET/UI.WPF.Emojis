@@ -2,7 +2,7 @@
 * text=auto
 
 # This is really text
-*.cs text
+*.cs text linguist-language=csharp
 *.hlsl text
 *.po text
 *.resx text
