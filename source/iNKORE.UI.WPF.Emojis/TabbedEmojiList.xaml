@@ -35,7 +35,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <ToggleButton Style="{Binding ElementName=UserControl_Root, Path=EmojiToggleButtonStyle}" Click="OnEmojiPicked">
+                            <ToggleButton x:Name="ToggleButton" DataContext="{Binding}" Style="{Binding ElementName=UserControl_Root, Path=EmojiToggleButtonStyle}" Click="OnEmojiPicked">
                                 <Image Height="{Binding EmojiItemSize, ElementName=UserControl_Root}" emoji:EmojiImage.Source="{Binding Path=Text}"/>
                             </ToggleButton>
                         </Grid>

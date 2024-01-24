@@ -121,13 +121,13 @@ namespace iNKORE.UI.WPF.Emojis
         {
             if (sender is Control control && control.DataContext is EmojiData.Emoji emoji)
             {
-                if (emoji.VariationList.Count == 0 || sender is Button)
+                if (emoji.VariationList.Count == 0 || control.Name != "VariationButton" || sender is Button)
                 {
                     var selectedItem = emoji.Text;
                     //EmojiPicked?.Invoke(this, new EmojiPickedEventArgs(emoji.Text));
                     this.RaiseEvent(new EmojiPickedEventArgs(selectedItem));
 
-                    if(sender is ToggleButton tgb)
+                    if (sender is ToggleButton tgb)
                     {
                         tgb.IsChecked = false;
                     }
