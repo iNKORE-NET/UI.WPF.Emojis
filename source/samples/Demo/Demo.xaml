@@ -130,6 +130,9 @@
                                        ToolTipService.ShowDuration="60000">
                         <FlowDocument>
                             <Paragraph>
+                                <Run FontSize="10">Rich</Run><Run FontSize="12" FontWeight="Bold">Text</Run><Run FontSize="15" FontStyle="Italic">Box</Run>
+                            </Paragraph>
+                            <Paragraph>
                                 <Run Text="{StaticResource EditableText}"/>
                             </Paragraph>
                         </FlowDocument>

@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:clr="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:LoremIpsum"
-        xmlns:stfu="clr-namespace:Stfu.Wpf;assembly=Stfu"
-        xmlns:emoji="clr-namespace:iNKORE.UI.WPF.Emojis;assembly=iNKORE.UI.WPF.Emojis"
+        xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+        xmlns:emojis="http://schemas.inkore.net/lib/ui/wpf/emojis"
         mc:Ignorable="d"
         Title="iNKORE.UI.WPF.Emojis LoremIpsum" Width="640" Height="480">
 
     <ListBox Margin="4" Name="ListBox" AlternationCount="2"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
              VirtualizingStackPanel.VirtualizationMode="Recycling"
-             stfu:Behaviors.SmoothScrolling="True">
+             ikw:Extensions.SmoothScrolling="True">
         <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
-                <VirtualizingStackPanel stfu:Behaviors.SmoothScrolling="True"/>
+                <VirtualizingStackPanel ikw:Extensions.SmoothScrolling="True"/>
             </ItemsPanelTemplate>
         </ListBox.ItemsPanel>
 
@@ -38,7 +38,7 @@
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel>
-                    <emoji:EmojiedTextBlock Width="580" Text="{Binding Text}" TextWrapping="Wrap" FontSize="16"/>
+                    <emojis:EmojiedTextBlock Width="580" Text="{Binding Text}" TextWrapping="Wrap" FontSize="16"/>
                 </StackPanel>
             </DataTemplate>
         </ListBox.ItemTemplate>
