@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("System emoji support for your WPF applications")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("iNKORE Studios")]
-[assembly: AssemblyProduct("iNKORE.UI.WPF.Modern")]
+[assembly: AssemblyProduct("iNKORE.UI.WPF.Emojis")]
 [assembly: AssemblyCopyright("Copyright © iNKORE! 2024")]
 [assembly: AssemblyTrademark("iNKORE!")]
 [assembly: AssemblyCulture("")]

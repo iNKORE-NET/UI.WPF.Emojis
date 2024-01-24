@@ -102,6 +102,8 @@ More classes are to come, but feedback on what is needed is welcome.
 
 # 🙋🏻‍♂️ Contribution
 
+- This repository is based on https://github.com/samhocevar/emoji.wpf
+
 - Want to contribute? The team encourages community feedback and contributions.
 
 - If the project is not working properly, please file a report. We welcome any issues and pull requests submitted on GitHub.
