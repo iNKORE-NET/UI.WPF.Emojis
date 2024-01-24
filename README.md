@@ -1,131 +1,109 @@
-# ![Icon](/Resources/icon.png) Emoji.Wpf
+<p align="center">
+  <a target="_blank" rel="noopener noreferrer">
+    <img width="128" src="https://raw.githubusercontent.com/iNKORE-Public/.github/main/assets/Inkore_Badge.png?raw=true)" alt="iNKORE Logo">
+  </a>
+</p>
 
-`Emoji.Wpf` adds Emoji rendering support to WPF applications.
+<p align="center">System emoji support for your WPF applications.</p>
 
-![Demo 1](/Resources/emoji.wpf.gif)
+<h1 align="center">
+  iNKORE.UI.WPF.Emojis
+</h1>
 
-## Features
+<p align="center">Give us a star if you like this!</p>
 
- - Provides drop-in replacements for `TextBlock` and `RichTextBox`, no additional
-   code required.
- - **Colour emoji**! 😨 💩 🍰 ✈️ ✏️ 📞 ☘️
+<p align="center">
+  <a href="https://github.com/iNKORE-Public/UI.WPF.Emojis/releases"><img src="https://img.shields.io/github/downloads/iNKORE-Public/UI.WPF.Emojis/total?color=%239F7AEA" alt="Release Downloads"></a>
+  <a href="#"><img src="https://img.shields.io/github/repo-size/iNKORE-Public/UI.WPF.Emojis?color=6882C4" alt="GitHub Repo Size"></a>
+  <a href="#"><img src="https://img.shields.io/github/last-commit/iNKORE-Public/UI.WPF.Emojis?color=%23638e66" alt="Last Commit"></a>
+  <a href="#"><img src="https://img.shields.io/github/issues/iNKORE-Public/UI.WPF.Emojis?color=f76642" alt="Issues"></a>
+  <a href="#"><img src="https://img.shields.io/github/v/release/iNKORE-Public/UI.WPF.Emojis?color=%4CF4A8B4" alt="Latest Version"></a>
+  <a href="#"><img src="https://img.shields.io/github/release-date/iNKORE-Public/UI.WPF.Emojis?color=%23b0a3e8" alt="Release Date"></a>
+  <a href="https://github.com/iNKORE-Public/UI.WPF.Emojis/commits/"><img src="https://img.shields.io/github/commit-activity/m/iNKORE-Public/UI.WPF.Emojis" alt="Commit Activity"></a>
+  <a href="https://www.nuget.org/packages/iNKORE.UI.WPF.Emojis"><img src="https://img.shields.io/nuget/v/iNKORE.UI.WPF.Emojis?color=blue&logo=nuget" alt="Nuget latest version"></a>
+  <a href="https://www.nuget.org/packages/iNKORE.UI.WPF.Emojis"><img src="https://img.shields.io/nuget/dt/iNKORE.UI.WPF.Emojis?color=blue&logo=nuget" alt="Nuget download conut"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/iNKORE-Public/UI.WPF.Emojis/network/members"><img src="https://img.shields.io/github/forks/iNKORE-Public/UI.WPF.Emojis?style=social" alt="Forks"></a>
+  <a href="https://github.com/iNKORE-Public/UI.WPF.Emojis/stargazers"><img src="https://img.shields.io/github/stars/iNKORE-Public/UI.WPF.Emojis?style=social" alt="Stars"></a>
+  <a href="https://github.com/iNKORE-Public/UI.WPF.Emojis/watchers"><img src="https://img.shields.io/github/watchers/iNKORE-Public/UI.WPF.Emojis?style=social" alt="Watches"></a>
+  <a href="https://github.com/iNKORE-Public/UI.WPF.Emojis/discussions"><img src="https://img.shields.io/github/discussions/iNKORE-Public/UI.WPF.Emojis?style=social" alt="Discussions"></a>
+  <a href="https://discord.gg/m6NPNVk4bs"><img src="https://img.shields.io/discord/1092738458805608561?style=social&label=Discord&logo=discord" alt="Discord"></a>
+  <a href="https://twitter.com/NotYoojun"><img src="https://img.shields.io/twitter/follow/NotYoojun?style=social" alt="NotYoojun's Twitter"></a>
+</p>
+
+<br>
+
+# ✨ Features
+
+ - Provides drop-in replacements for `TextBlock` and `RichTextBox`, no additional code required.
+ - **Colored emoji**! 😨 💩 🍰 ✈️ ✏️ 📞 ☘️
  - **Multiracial family emoji**! 👩🏿‍👩🏻‍👦🏽 👨🏻‍👩🏿‍👧🏽‍👦🏽 👩🏻‍👶🏽
- - **Emoji for flags**! <img src="https://github.com/samhocevar/emoji.wpf/raw/main/Resources/flags.png" height="24"/>
- - **Win11 style flags**! <img src="https://github.com/samhocevar/emoji.wpf/raw/main/Resources/newflags.png" height="16"/>
+ - **Emoji for flags**! <img src="https://github.com/iNKORE-Public/UI.WPF.Emojis/raw/main/docs/images/flags.png" height="24"/>
+ - **Win11 style flags**! <img src="https://github.com/iNKORE-Public/UI.WPF.Emojis/raw/main/docs/images/newflags.png" height="16"/>
  - **Full vector emoji**! Render at huge sizes without quality loss.
  - Optional support for subpixel antialiasing.
  - **Lightweight**; does not embed a font or emoji images; just uses the system font.
  - Works with **old .NET versions** such as .NET Framework 4.0.
- - Can work on **Windows 7 or Windows 8** by installing the Segoe UI Emoji font in
-   `c:/Windows/Fonts`.
- - [Free, opensource software](http://www.wftpl.net/), with no strings attached.
- - Available as a [Nuget package](https://www.nuget.org/packages/Emoji.Wpf).
+ - Can work on **Windows 7 or Windows 8** by installing the Segoe UI Emoji font in `C:/Windows/Fonts`.
+ - Available as a [Nuget package](https://www.nuget.org/packages/iNKORE.UI.WPF.Emojis).
 
-### Available classes
+ # 🧾 Details
 
- - `Emoji.Wpf.TextBlock`: an emoji-aware version of `System.Windows.Controls.TextBlock`.
- - `Emoji.Wpf.RichTextBox`: an emoji-aware version of `System.Windows.Controls.RichTextBox`.
- - `Emoji.Wpf.Picker`: an emoji picker
+## Available classes
 
-### Available dependency properties
+ - `EmojiedTextBlock`: an emoji-aware version of `System.Windows.Controls.TextBlock`.
+ - `EmojiedRichTextBox`: an emoji-aware version of `System.Windows.Controls.RichTextBox`.
+ - `EmojiPicker`: an emoji picker
 
- - `Emoji.Image.Source`: attach to either `System.Windows.Controls.Image` control or
+## Available dependency properties
+
+ - `EmojiImage.Source`: attach to either `System.Windows.Controls.Image` control or
    `System.Windows.Media.DrawingImage` object in order to manipulate emoji images
 
-### Available runtime flags
+## Available runtime flags
 
- - `bool Emoji.Wpf.EmojiData.EnableSubPixelRendering`: enable subpixel rendering, defaults to `false`
- - `bool Emoji.Wpf.EmojiData.EnableWindowsStyleFlags`: enable flag rendering, defaults to autodetected
+ - `bool EmojiData.EnableSubPixelRendering`: enable subpixel rendering, defaults to `false`
+ - `bool EmojiData.EnableWindowsStyleFlags`: enable flag rendering, defaults to autodetected
 
-### Examples
+## How does it work
+
+- Emoji.Wpf renders emoji as vector images, using the WPF text rendering engine. The geometry information is found in the Segoe UI Emoji font glyphs. The colour information is found in the same font, using Microsoft’s COLR/CPAL format extensions.
+
+# 🤔 Examples
 
 Here is how to use Emoji.Wpf in your XAML:
 
-```xaml
-    <Window ...
-            xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
-            ...>
+```xml
+<Window x:Class="Demo.DemoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:clr="clr-namespace:System;assembly=mscorlib"
+        xmlns:emoji="http://schemas.inkore.net/lib/ui/wpf/emojis"
+        mc:Ignorable="d"
+        Title="iNKORE.UI.WPF.Emojis Demo" Width="640" Height="480">
         <Window.Resources>
             <DrawingImage x:Key="MyImageSource" emoji:Image.Source="👻"/>
         </Window.Resources>
-        ...
-        <emoji:RichTextBox FontSize="24" Margin="5"/>
-        ...
-        <emoji:TextBlock FontSize="24" Text="Hello! 💖😁🐨🐱‍🐉👩🏿‍👩🏻‍👦🏽 lol"/>
-        ...
-        <emoji:Picker FontSize="40"/>
-        ...
-        <Image Source="{StaticResource MyImageSource}"/>
-        ...
-        <Image emoji:Image.Source="🦑"/>
-        ...
+        
+        <StackPanel>
+            <emoji:EmojiedRichTextBox FontSize="24" Margin="5"/>
+            <emoji:EmojiedTextBlock FontSize="24" Text="Hello! 💖😁🐨🐱‍🐉👩🏿‍👩🏻‍👦🏽 lol"/>
+            <emoji:EmojiPicker FontSize="40"/>
+            <Image Source="{StaticResource MyImageSource}"/>
+            <Image emoji:EmojiImage.Source="🦑"/>
+        </StackPanel>
     </Window>
 ```
 
 More classes are to come, but feedback on what is needed is welcome.
 
-![Demo 2](/Resources/emoji.wpf.png)
+# 🙋🏻‍♂️ Contribution
 
-### Help needed!
+- Want to contribute? The team encourages community feedback and contributions.
 
-I am not a very good WPF or even C# developer, but I think this could become a very
-useful and robust library if given enough care. Any help appreciated!
+- If the project is not working properly, please file a report. We welcome any issues and pull requests submitted on GitHub.
 
-### Version changelog
-
- - v0.3.4 (2022/11/16):
-   - fix a crash in `emoji:RichTextBox`
-   - fix multiple issues with drag-and-drop in `emoji:RichTextBox`
-   - glyph colourisation is now done on the GPU
-   - new Windows 11 style flags on Windows 11
- - v0.3.3 (2021/06/03):
-   - fix a crash on Windows 8
-   - fix flag rendering with the Twemoji font
- - v0.3.1 (2021/06/02):
-   - allow to disable flag rendering
- - v0.3.0 (2021/03/14):
-   - glyphs for flags!
-   - new `emoji:EmojiRendering` dependency property for `FlowDocument`
-   - optional subpixel glyph rendering
-   - experimental support for custom emoji sequences and custom glyphs
- - v0.2.5 (2021/01/29):
-   - minor adjustments in `emoji:Picker`
- - v0.2.4 (2021/01/28):
-   - new `emoji:Image.Source` dependency property for `Image` and `DrawingImage` objects, allowing
-     to easily render emoji as icons
- - v0.2.3 (2021/01/27):
-   - the rendering pipeline now exclusively uses vector objects
-   - subpixel glyph positioning
-   - use `ColonSyntax="True"` in `emoji:RichTextBox` for replace-as-you-type: `:koala:` becomes 🐨 _etc._
- - v0.2.2 (2021/01/25):
-   - increased picker performance through virtualisation
-   - rendering fallback for emoji ZWJ sequences
- - v0.2.1 (2021/01/22):
-   - `emoji:RichTextBox.Text` is two-way bindable and binding defaults to `LostFocus`
-   - all base controls implement an `IEmojiControl` interface for convenience
-   - fixed a warning caused by the Typography DLLs about `ExtensionAttribute` being redefined
- - v0.2.0 (2021/01/17):
-   - support for undo/redo and numerous bugfixes in `emoji:RichTextBox`
-   - minimal .NET version is now Framework 4.0 (was 3.0)
- - v0.1.8 (2021/01/13):
-   - composite emoji such as 🧔🏻 or 👨🏻‍🦰 now render properly in `emoji:RichTextBox`
-   - new `Picked` event in `emoji:Picker`
- - v0.1.7 (2021/01/12):
-   - colour blending is off by default; use `ColorBlend="True"` to enable
- - v0.1.6 (2021/01/11):
-   - add support for colour blending in `emoji:TextBlock`; ~~use `Blending="False"` to disable~~
- - v0.1.4 (2020/11/23):
-   - add support for complex family emoji and mixed skin tone families
- - v0.1.2 (2020/11/22):
-   - support hair style variation emoji
-   - fix kerning and positioning issues with family emoji
- - v0.1.1 (2020/11/10):
-   - support wrapping in `emoji:TextBlock`
- - v0.1.0 (2020/11/9):
-   - first non-experimental release
-
-### How does it work?
-
-Emoji.Wpf renders emoji as vector images, using the WPF text rendering engine. The geometry
-information is found in the Segoe UI Emoji font glyphs. The colour information is found in the
-same font, using Microsoft’s COLR/CPAL format extensions.
+- Sponsor us at https://inkore.net/about/members/notyoojun#sponsor
