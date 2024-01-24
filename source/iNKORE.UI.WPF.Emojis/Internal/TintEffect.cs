@@ -10,6 +10,8 @@
 //  See http://www.wtfpl.net/ for more details.
 //
 
+using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
@@ -20,10 +22,11 @@ namespace iNKORE.UI.WPF.Emojis
     {
         static TintEffect()
         {
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            var stream = assembly.GetManifestResourceStream("TintEffect.ps");
+            //var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            //var stream = assembly.GetManifestResourceStream("/Resources/Shaders/TintEffect.ps");
             m_shader = new PixelShader();
-            m_shader.SetStreamSource(stream);
+
+            m_shader.UriSource = new Uri(@"/iNKORE.UI.WPF.Emojis;component/Resources/Shaders/TintEffect.ps", UriKind.Relative);
         }
 
         public TintEffect()

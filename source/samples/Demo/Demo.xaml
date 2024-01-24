@@ -6,7 +6,7 @@
         xmlns:clr="clr-namespace:System;assembly=mscorlib"
         xmlns:emoji="http://schemas.inkore.net/lib/ui/wpf/emojis"
         mc:Ignorable="d"
-        Title="iNKORE.UI.WPF.Emojis Demo" Width="640" Height="480">
+        Title="iNKORE.UI.WPF.Emojis Demo" Width="720" Height="480">
 
     <Window.Resources>
         <clr:String x:Key="SampleText">Hello! 😁🎀🇬🇧👨‍👦👨🏻‍👩🏿‍👧🏽‍👦🏽‍‍😶‍🌫️</clr:String>
@@ -86,7 +86,7 @@
             <DockPanel Grid.Column="0" LastChildFill="True">
                 <GroupBox DockPanel.Dock="Top" Header="emoji:Picker" Margin="4">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                        <emoji:EmojiPicker x:Name="EmojiPicker" FontSize="24" Margin="0,0,0,4"
+                        <emoji:EmojiPicker x:Name="EmojiPicker" Margin="0,0,0,4"
                                       Selection="{StaticResource PickerEmoji}"/>
                         <emoji:EmojiedTextBlock FontSize="20" HorizontalAlignment="Center"
                                          Text="{Binding Selection, ElementName=EmojiPicker, Mode=TwoWay}"/>

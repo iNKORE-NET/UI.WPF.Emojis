@@ -17,7 +17,7 @@
     <Grid>
         <ToggleButton x:Name="Button_INTERNAL" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
               IsHitTestVisible="{Binding IsOpen, ElementName=Popup_INTERNAL, Mode=OneWay, Converter={stfu:BoolInverter}}">
-            <Viewbox Margin="4">
+            <Viewbox Margin="4" Width="{Binding ElementName=UserControl_Root, Path=PickerEmojiItemSize}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Width}">
                 <Image Width="24" Height="24" x:Name="Image" emoji:EmojiImage.Source="{Binding ElementName=UserControl_Root, Mode=OneWay, Path=Selection, UpdateSourceTrigger=PropertyChanged}"/>
             </Viewbox>
         </ToggleButton>

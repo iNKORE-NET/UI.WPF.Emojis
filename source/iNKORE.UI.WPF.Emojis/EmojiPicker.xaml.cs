@@ -106,6 +106,14 @@ namespace iNKORE.UI.WPF.Emojis
             set { SetValue(EmojiItemSizeProperty, value); }
         }
 
+        public static readonly DependencyProperty PickerEmojiItemSizeProperty = DependencyProperty.Register(nameof(PickerEmojiItemSize), typeof(double), typeof(EmojiPicker), new PropertyMetadata(double.NaN));
+        public double PickerEmojiItemSize
+        {
+            get { return (double)GetValue(PickerEmojiItemSizeProperty); }
+            set { SetValue(PickerEmojiItemSizeProperty, value); }
+        }
+
+
         public static readonly DependencyProperty EmojiToggleButtonStyleProperty = TabbedEmojiList.EmojiToggleButtonStyleProperty.AddOwner(typeof(EmojiPicker));
         public Style EmojiToggleButtonStyle
         {

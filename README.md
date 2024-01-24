@@ -33,7 +33,7 @@
   <a href="https://twitter.com/NotYoojun"><img src="https://img.shields.io/twitter/follow/NotYoojun?style=social" alt="NotYoojun's Twitter"></a>
 </p>
 
-<br>
+![](docs/images/Screenshot%202024-01-24%20154647.png)
 
 # ✨ Features
 
