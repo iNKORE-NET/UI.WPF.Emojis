@@ -90,7 +90,7 @@ namespace iNKORE.UI.WPF.Emojis
 
             if (!m_cache.TryGetValue(UnicodeSequence, out var item))
             {
-                var dg = EmojiImage.RenderEmoji(UnicodeSequence, out item.width, out item.height);
+                var dg = EmojiImage.RenderEmoji(UnicodeSequence, out item.width, out item.height, true);
                 item.di = new DrawingImage(dg);
                 item.di.Freeze();
 

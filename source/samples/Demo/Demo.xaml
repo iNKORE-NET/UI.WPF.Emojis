@@ -21,7 +21,7 @@
         <clr:String x:Key="Run1Text">🕺</clr:String>
         <clr:String x:Key="Run2Text">💃</clr:String>
         <clr:String x:Key="StringImageSource">👩‍💻</clr:String>
-        <DrawingImage x:Key="DrawingImageSource" emoji:EmojiImage.Source="🏇"/>
+        <DrawingImage x:Key="DrawingImageSource" emoji:EmojiImage.Source="🏇" emoji:EmojiImage.DrawPadding="False"/>
     </Window.Resources>
 
     <Grid>
