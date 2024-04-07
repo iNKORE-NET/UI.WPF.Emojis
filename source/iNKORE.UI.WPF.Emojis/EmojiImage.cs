@@ -54,6 +54,7 @@ namespace iNKORE.UI.WPF.Emojis
                 if (o is Image image)
                 {
                     var di = new DrawingImage();
+                    SetDrawPadding(di, drawPadding);
                     SetSource(di, source);
                     image.Source = di;
                 }
@@ -110,6 +111,7 @@ namespace iNKORE.UI.WPF.Emojis
                 {
                     var h = 0d;
                     var w = 0d;
+
                     flag.Dispatcher.Invoke(() =>
                     {
                         GeometryDrawing clip = null, outline;
@@ -118,36 +120,49 @@ namespace iNKORE.UI.WPF.Emojis
                         var style = text == "🇨🇭" || text == "🇻🇦" ? "square"
                                   : text == "🇳🇵" ? "nepal" : "rectangle";
 
-                        if (EmojiData.Typeface.HasWin11Emoji)
+                        var dg2 = new DrawingGroup();
+
+                        using(var dc2 = dg2.Open())
                         {
-                            clip = flags["clip_" + style] as GeometryDrawing;
-                            if (clip != null)
-                                dc.PushClip(clip.Geometry);
+                            if (EmojiData.Typeface.HasWin11Emoji)
+                            {
+                                clip = flags["clip_" + style] as GeometryDrawing;
+                                if (clip != null)
+                                    dc2.PushClip(clip.Geometry);
+                            }
+
+                            // Draw the actual flag geometry
+                            foreach (var child in flag.Children)
+                            {
+                                dc2.DrawDrawing(child);
+                            }
+
+                            if (EmojiData.Typeface.HasWin11Emoji)
+                            {
+                                outline = flags["bounds_" + style] as GeometryDrawing;
+                                if (clip != null)
+                                    dc2.Pop();
+                            }
+                            else
+                            {
+                                // Draw the flag outline
+                                outline = flags[style] as GeometryDrawing;
+                                dc2.DrawDrawing(outline);
+                                var pole = flags["pole"] as GeometryDrawing;
+                                dc2.DrawDrawing(pole);
+                            }
+
+                            var padding = PadRect(outline.Bounds);
+                            if (drawPadding)
+                            {
+                                dc2.DrawRectangle(Brushes.Transparent, null, padding);
+                            }
+
+                            h = (FONT_TOP_PADDING + FONT_GLYPH_SIZE + FONT_BOTTOM_PADDING) / FONT_EM_SIZE;
+                            w = h * padding.Width / padding.Height;
                         }
 
-                        // Draw the actual flag geometry
-                        foreach (var child in flag.Children)
-                            dc.DrawDrawing(child);
-
-                        if (EmojiData.Typeface.HasWin11Emoji)
-                        {
-                            outline = flags["bounds_" + style] as GeometryDrawing;
-                            if (clip != null)
-                                dc.Pop();
-                        }
-                        else
-                        {
-                            // Draw the flag outline
-                            outline = flags[style] as GeometryDrawing;
-                            dc.DrawDrawing(outline);
-                            var pole = flags["pole"] as GeometryDrawing;
-                            dc.DrawDrawing(pole);
-                        }
-
-                        var padding = PadRect(outline.Bounds);
-                        dc.DrawRectangle(Brushes.Transparent, null, padding);
-                        h = (FONT_TOP_PADDING + FONT_GLYPH_SIZE + FONT_BOTTOM_PADDING) / FONT_EM_SIZE;
-                        w = h * padding.Width / padding.Height;
+                        dg = (DrawingGroup)dg2.GetAsFrozen();
                     });
 
                     height = h;
